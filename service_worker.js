@@ -35,8 +35,7 @@ self.addEventListener('activate', function(event) {
 		.then(function(cacheNames) {
 			return Promise.all(
 				cacheNames.filter(function(cacheName) {
-					return cacheName.startsWith('restaurant-') &&
-						cacheName != CACHE_NAME;
+					return cacheName === "restaurantMap";
 				}).map(function(cacheName) {
 					return caches.delete(cacheName);
 				})
